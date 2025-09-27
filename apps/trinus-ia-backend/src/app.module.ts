@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UsersModule } from './users/users.module';
+import { UsersService } from './src/users/users/users.service';
+import { UsersService } from './src/users/users/users.service';
 
 @Module({
   imports: [
@@ -15,8 +18,9 @@ import { AppService } from './app.service';
       entities: [], // Adicionar entidades aqui conforme forem criadas
       synchronize: true, // Apenas para desenvolvimento, NUNCA em produção
     }),
+    UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, UsersService],
 })
 export class AppModule {}
