@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './src/users/users/users.service';
+import { AuthModule } from './auth/auth/auth.module';
 import { UsersService } from './src/users/users/users.service';
 
 @Module({
@@ -19,6 +20,7 @@ import { UsersService } from './src/users/users/users.service';
       synchronize: true, // Apenas para desenvolvimento, NUNCA em produção
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, UsersService],
